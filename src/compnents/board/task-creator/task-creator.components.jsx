@@ -6,10 +6,15 @@ class TaskCreator extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            active: true,
+            active: false,
             cardTitle: '',
             cardDescription: ''
         }
+        this.toggleTaskCreator = this.toggleTaskCreator.bind(this);
+    }
+
+    toggleTaskCreator() {
+        this.setState({active: !this.state.active});
     }
 
     render(){
@@ -26,11 +31,11 @@ class TaskCreator extends React.Component {
                 value={this.state.cardDescription}
               />
               <button>Save</button>
-              <button>Cancel</button>
+              <button onClick = {this.toggleTaskCreator}>Cancel</button>
             </div>
           );
         } else {
-          return <div className='card card--placeholder card--placeholder-inactive' onClick={this.toggleForm}>+</div>
+          return <div className='card card--placeholder card--placeholder-inactive' onClick={this.toggleTaskCreator}>+</div>
         }
       }
 
