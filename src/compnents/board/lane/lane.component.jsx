@@ -14,7 +14,7 @@ class Lane extends React.Component{
   render() {
     return(
       <div className='lane'>
-        <h2>{this.state.title}</h2>
+        <h2>{this.props.title}</h2>
         <Card />
         <TaskCreator />
       </div>

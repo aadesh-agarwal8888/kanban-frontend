@@ -1,13 +1,54 @@
 import React from 'react';
 import Lane from './lane/lane.component';
-import './board.styles.scss'
+import './board.styles.scss';
+
 
 class Board extends React.Component{
 
     constructor(props) {
         super(props);
         this.state = {
-            title: "Kanban Board"
+            title: "Kanban Board",
+            lanes: [
+              {
+                id: 1,
+                title: "Planned"
+              },
+              {
+                id: 2,
+                title: "In Progress"
+              },
+              {
+                id: 1,
+                title: "Completed"
+              },
+            ],
+            tasks: [
+              {
+                id: 1,
+                title: 'TASK 1',
+                desc: 'TASK 1 DESC',
+                status: 1
+              },
+              {
+                id: 2,
+                title: 'TASK 2',
+                desc: 'TASK 2 DESC',
+                status: 1
+              },
+              {
+                id: 3,
+                title: 'TASK 3',
+                desc: 'TASK 3 DESC',
+                status: 2
+              },
+              {
+                id: 4,
+                title: 'TASK 4',
+                desc: 'TASK 4 DESC',
+                status: 3
+              },
+            ]
         }
     }
 
@@ -19,9 +60,15 @@ class Board extends React.Component{
               </div>
               <div className='content'>
                 <div className='lane-container'>
-                  <Lane />
-                  <Lane />
-                  <Lane />
+                  {
+                    this.state.lanes.map((lane) => {
+                      return <Lane 
+                        id = {lane.id}
+                        title = {lane.title}
+                        tasks = {this.state.tasks.filter(task => task.status === lane.id)}
+                      />
+                    })
+                  }
                 </div>
               </div>
             </div>
