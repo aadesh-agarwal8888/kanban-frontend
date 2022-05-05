@@ -1,0 +1,46 @@
+.card {
+    width: 90%;
+    margin: 10px auto;
+    position: relative;
+    border-radius: 3px;
+    background-color: #e6f0ff;
+}
+
+.card-icon-container {
+    position: absolute;
+    top: 5px;
+    right: 2px;
+}
+
+.icon {
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    float: right;
+    padding: 0px 3px;
+    height: 16px;
+    width: 16px;
+}
+
+.icon--edit {
+    background-image: url("../../../../assets/edit.png");
+}
+
+.icon--delete {
+    background-image: url("../../../../assets/delete.png");
+}
+
+.card, .icon:hover, button {
+    cursor: pointer;
+}
+
+.card-title {
+    background-color: #1a75ff;
+    text-align: left;
+    padding: 10px;
+    border-radius: 3px 3px 0px 0px;
+}
+
+.card-content {
+    text-align: left;
+    padding: 10px;
+}
