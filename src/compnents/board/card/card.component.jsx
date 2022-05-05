@@ -18,8 +18,8 @@ class Card extends React.Component{
             <div className='icon icon--delete'></div>
             <div className='icon icon--edit'></div>
           </div>
-          <div className='card-title'>Task 1</div>
-          <div className='card-content'>Descriptn on task 1</div>
+          <div className='card-title'>{this.props.task.title}</div>
+          <div className='card-content'>{this.props.task.desc}</div>
         </div>
       );
   }

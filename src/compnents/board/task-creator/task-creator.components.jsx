@@ -7,14 +7,25 @@ class TaskCreator extends React.Component {
         super(props);
         this.state = {
             active: false,
-            cardTitle: '',
-            cardDescription: ''
+            title: '',
+            desc: ''
         }
+        this.updateText = this.updateText.bind(this);
         this.toggleTaskCreator = this.toggleTaskCreator.bind(this);
+        this.addTask = this.addTask.bind(this);
+    }
+
+    updateText(name, e) {
+      this.setState({[name]: e.currentTarget.value});
     }
 
     toggleTaskCreator() {
         this.setState({active: !this.state.active});
+    }
+
+    addTask(e) {
+      this.props.addTask(this.state.title, this.state.desc, this.props.laneId)
+      this.toggleTaskCreator()
     }
 
     render(){
@@ -24,13 +35,15 @@ class TaskCreator extends React.Component {
               <input
                 type='text'
                 placeholder='Title'
-                value={this.state.cardTitle}
+                value={this.state.title}
+                onChange={this.updateText.bind(null, 'title')}
               />
               <textarea
                 placeholder='Description'
-                value={this.state.cardDescription}
+                value={this.state.desc}
+                onChange={this.updateText.bind(null, 'desc')}
               />
-              <button>Save</button>
+              <button onClick = {this.addTask}>Save</button>
               <button onClick = {this.toggleTaskCreator}>Cancel</button>
             </div>
           );

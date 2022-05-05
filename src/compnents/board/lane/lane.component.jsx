@@ -15,8 +15,17 @@ class Lane extends React.Component{
     return(
       <div className='lane'>
         <h2>{this.props.title}</h2>
-        <Card />
-        <TaskCreator />
+        {
+          this.props.tasks.map((task) => {
+            return <Card 
+              task = {task}
+            />
+          })
+        }
+        <TaskCreator 
+          addTask = {this.props.addTask}
+          laneId = {this.props.id}
+        />
       </div>
     )
   }

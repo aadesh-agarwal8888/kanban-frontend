@@ -19,7 +19,7 @@ class Board extends React.Component{
                 title: "In Progress"
               },
               {
-                id: 1,
+                id: 3,
                 title: "Completed"
               },
             ],
@@ -50,6 +50,19 @@ class Board extends React.Component{
               },
             ]
         }
+        
+        this.addTask = this.addTask.bind(this)
+    }
+
+    addTask(title, desc, status) {
+      let tasks = this.state.tasks;
+      tasks.push({
+        id: tasks.length,
+        title: title,
+        desc: desc,
+        status: status
+      })
+      this.setState({tasks})
     }
 
     render() {
@@ -66,6 +79,7 @@ class Board extends React.Component{
                         id = {lane.id}
                         title = {lane.title}
                         tasks = {this.state.tasks.filter(task => task.status === lane.id)}
+                        addTask = {this.addTask}
                       />
                     })
                   }
