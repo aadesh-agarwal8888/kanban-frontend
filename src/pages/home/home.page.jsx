@@ -3,6 +3,7 @@ import { Navbar } from "react-bootstrap";
 import Board from '../../compnents/board/board.component';
 import Card from '../../compnents/board/card/card.component';
 import Lane from '../../compnents/board/lane/lane.component';
+import './home.styles.scss';
 
 class HomeScreen extends React.Component {
 
@@ -23,9 +24,6 @@ class HomeScreen extends React.Component {
     render() {
         return(
             <div>
-                <Navbar bg="dark" variant="dark">
-                    <Navbar.Brand href="#home">Kanban Board</Navbar.Brand>
-                </Navbar>
                 <Board />
             </div>
         )

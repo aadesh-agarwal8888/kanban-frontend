@@ -54,6 +54,8 @@ class Board extends React.Component{
         this.addTask = this.addTask.bind(this)
         this.updateTask = this.updateTask.bind(this)
         this.deleteTask = this.deleteTask.bind(this)
+        this.changeTaskStatus = this.changeTaskStatus.bind(this)
+        
     }
 
     addTask(title, desc, status) {
@@ -83,6 +85,28 @@ class Board extends React.Component{
       this.setState({tasks})
     }
 
+    changeTaskStatus(taskId, type) {
+      let tasks = this.state.tasks;
+      var idx = this.state.tasks.findIndex(task => {
+        return task.id === taskId
+      })
+
+      if(type === 0) {
+        if(tasks[idx].status != 1) {
+          tasks[idx].status--;
+        } else {
+          console.log("Cannot be done")
+        }
+      } else {
+        if(tasks[idx].status != 3) {
+          tasks[idx].status++;
+        } else {
+          console.log("Cannot be done")
+        }
+      }
+      this.setState({tasks})
+    }
+    
     render() {
         return(
             <div className='board'>
@@ -94,13 +118,14 @@ class Board extends React.Component{
                   {
                     this.state.lanes.map((lane) => {
                       return <Lane 
-                        id = {lane.id}
-                        title = {lane.title}
-                        tasks = {this.state.tasks.filter(task => task.status === lane.id)}
-                        addTask = {this.addTask}
-                        updateTask = {this.updateTask}
-                        deleteTask = {this.deleteTask}
-                      />
+                          id = {lane.id}
+                          title = {lane.title}
+                          tasks = {this.state.tasks.filter(task => task.status === lane.id)}
+                          addTask = {this.addTask}
+                          updateTask = {this.updateTask}
+                          deleteTask = {this.deleteTask}
+                          changeTaskStatus = {this.changeTaskStatus}
+                        />
                     })
                   }
                 </div>
