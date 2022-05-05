@@ -52,6 +52,7 @@ class Board extends React.Component{
         }
         
         this.addTask = this.addTask.bind(this)
+        this.updateTask = this.updateTask.bind(this)
     }
 
     addTask(title, desc, status) {
@@ -62,6 +63,17 @@ class Board extends React.Component{
         desc: desc,
         status: status
       })
+      this.setState({tasks})
+    }
+
+    updateTask(id, title, desc, status) {
+      let tasks = this.state.tasks;
+      var idx = this.state.tasks.findIndex(task => {
+        return task.id === id
+      })
+      tasks[idx].title = title
+      tasks[idx].desc = desc
+
       this.setState({tasks})
     }
 
@@ -80,6 +92,7 @@ class Board extends React.Component{
                         title = {lane.title}
                         tasks = {this.state.tasks.filter(task => task.status === lane.id)}
                         addTask = {this.addTask}
+                        updateTask = {this.updateTask}
                       />
                     })
                   }

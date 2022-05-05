@@ -4,6 +4,7 @@ import TaskCreator from '../task-creator/task-creator.components';
 import './lane.styles.scss'
 
 class Lane extends React.Component{
+  //Props: id, title, tasks, addTask
   constructor(props) {
     super(props);
     this.state = {
@@ -19,6 +20,8 @@ class Lane extends React.Component{
           this.props.tasks.map((task) => {
             return <Card 
               task = {task}
+              laneId = {this.props.id}
+              updateTask = {this.props.updateTask}
             />
           })
         }
