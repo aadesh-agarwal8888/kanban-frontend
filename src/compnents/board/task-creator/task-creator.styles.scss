@@ -1,0 +1,46 @@
+.card {
+    width: 90%;
+    margin: 10px auto;
+    position: relative;
+    border-radius: 3px;
+    background-color: #e6f0ff;
+}
+
+.card--placeholder {
+    box-sizing: border-box;
+    background-color: #ffffff;
+    padding: 10px 0px;;
+}
+
+.card--placeholder-active:hover {
+    cursor: auto;
+}
+
+input {
+    display: block;
+    padding: 2px;
+}
+
+textarea {
+    display: block;
+    height: 4em;
+    resize: none;
+    padding: 2px;
+}
+
+.card--placeholder input, .card--placeholder textarea {
+    width: 90%;
+    border: grey solid 1px;
+    margin: 5px auto;
+}
+
+button {
+    background-color: green;
+    width: 30%;
+    border: none;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 5px;
+    margin: 5px;
+}
