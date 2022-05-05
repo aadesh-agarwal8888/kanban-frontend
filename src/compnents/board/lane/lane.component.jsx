@@ -22,6 +22,7 @@ class Lane extends React.Component{
               task = {task}
               laneId = {this.props.id}
               updateTask = {this.props.updateTask}
+              deleteTask = {this.props.deleteTask}
             />
           })
         }

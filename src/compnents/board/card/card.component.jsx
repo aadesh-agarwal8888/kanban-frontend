@@ -13,6 +13,7 @@ class Card extends React.Component{
     this.updateText = this.updateText.bind(this);
     this.toggleEditable = this.toggleEditable.bind(this);
     this.updateTask = this.updateTask.bind(this);
+    this.deleteTask = this.deleteTask.bind(this);
   }
 
   updateText(name, e) {
@@ -32,12 +33,16 @@ class Card extends React.Component{
     this.toggleEditable()
   }
 
+  deleteTask() {
+    this.props.deleteTask(this.props.task.id)
+  }
+
   render() {
     if(!this.state.editable) {
       return (
         <div className='card'>
           <div className='card-icon-container'>
-            <div className='icon icon--delete'></div>
+            <div className='icon icon--delete' onClick={this.deleteTask}></div>
             <div className='icon icon--edit' onClick={ this.toggleEditable}></div>
           </div>
           <div className='card-title'>{this.props.task.title}</div>
