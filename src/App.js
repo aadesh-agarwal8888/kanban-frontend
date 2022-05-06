@@ -22,10 +22,11 @@ class App extends React.Component {
   }
 
   loginFunc(email, password) {
+    let done = false
     USERS.map((user) => {
       if(user.username == email && user.password == password) {
         this.setState({loggedIn: true, user})
-      } 
+      }
     });
   }
 
@@ -42,6 +43,7 @@ class App extends React.Component {
       password: password,
       role: role
     })
+    alert("New User Created")
   }
 
   render() {
