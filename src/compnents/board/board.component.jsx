@@ -20,7 +20,7 @@ class Board extends React.Component{
         
     }
 
-    addTask(title, desc, status, empId) {
+    addTask(title, desc, status, empId, priority) {
       let tasks = this.state.tasks;
       let nextIdx = tasks[tasks.length - 1].id + 1
       tasks.push({
@@ -28,20 +28,23 @@ class Board extends React.Component{
         title: title,
         desc: desc,
         status: status,
-        emp: empId
+        emp: empId,
+        priority: priority
       })
       this.setState({tasks})
       console.log(this.state)
     }
 
-    updateTask(id, title, desc, status) {
+    updateTask(id, title, desc, status, priority) {
       let tasks = this.state.tasks;
       var idx = this.state.tasks.findIndex(task => {
         return task.id === id
       })
       tasks[idx].title = title
       tasks[idx].desc = desc
-
+      tasks[idx].status = status
+      tasks[idx].priority = priority
+      console.log(tasks)
       this.setState({tasks})
     }
 
@@ -57,20 +60,6 @@ class Board extends React.Component{
       })
 
       tasks[idx].status = type
-
-      /*if(type === 0) {
-        if(tasks[idx].status != 1) {
-          tasks[idx].status--;
-        } else {
-          console.log("Cannot be done")
-        }
-      } else {
-        if(tasks[idx].status != 3) {
-          tasks[idx].status++;
-        } else {
-          console.log("Cannot be done")
-        }
-      }*/
       this.setState({tasks})
     }
     

@@ -42,7 +42,8 @@ export const TASKS = [
         emp: {
           id: 1,
           name: "Aadesh"
-        }
+        },
+        priority: 1,
       },
       {
         id: 2,
@@ -52,7 +53,8 @@ export const TASKS = [
         emp: {
           id: 1,
           name: "Aadesh"
-        }
+        },
+        priority: 2,
       },
       {
         id: 3,
@@ -62,7 +64,8 @@ export const TASKS = [
         emp: {
           id: 2,
           name: "Yash"
-        }
+        },
+        priority: 1,
       },
       {
         id: 4,
@@ -72,7 +75,8 @@ export const TASKS = [
         emp: {
           id: 3,
           name: "Ashwin"
-        }
+        },
+        priority: 1,
       },
 ]
 
@@ -140,5 +144,20 @@ export const USERS = [
     username: "chris",
     password: "chris",
     role: "manager",
+  },
+]
+
+export const PRIORITIES = [
+  {
+    value: 1,
+    label: 'HIGH'
+  },
+  {
+    value: 2,
+    label: 'MODERATE'
+  },
+  {
+    value: 3,
+    label: 'LOW'
   },
 ]

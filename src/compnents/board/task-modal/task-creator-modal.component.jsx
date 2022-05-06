@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Modal, FormGroup, FormLabel , Form} from "react-bootstrap";
 import Select from 'react-select';
+import { PRIORITIES } from "../../../data";
 
 function TaskForm(props) {
     return (
@@ -65,7 +66,19 @@ function TaskForm(props) {
                       })}
                     />
                   </FormGroup>
-              }       
+              }    
+              <FormGroup>
+                <FormLabel>Priority</FormLabel>
+                <Select
+                  className="basic-single"
+                  classNamePrefix="select"
+                  options = {PRIORITIES}
+                  onChange = {props.handlePriorityChange}
+                  defaultValue = {PRIORITIES.filter(pri => pri.value == props.initialPriority).map(filteredPri => {
+                    return filteredPri
+                  })}
+                />
+              </FormGroup>   
             </Modal.Body>
             <Modal.Footer>
               <Button

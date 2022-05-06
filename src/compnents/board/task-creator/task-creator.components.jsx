@@ -13,11 +13,13 @@ class TaskCreator extends React.Component {
             active: false,
             title: '',
             desc: '',
-            emp: 0
+            emp: 0,
+            priority: 0
         }
         this.updateText = this.updateText.bind(this);
         this.toggleTaskCreator = this.toggleTaskCreator.bind(this);
         this.addTask = this.addTask.bind(this);
+        this.handlePriorityChange = this.handlePriorityChange.bind(this);
     }
 
     updateText(name, e) {
@@ -31,7 +33,7 @@ class TaskCreator extends React.Component {
 
     addTask(e) {
       console.log(this.state)
-      this.props.addTask(this.state.title, this.state.desc, this.props.laneId, this.state.emp)
+      this.props.addTask(this.state.title, this.state.desc, this.props.laneId, this.state.emp, this.state.priority)
       this.toggleTaskCreator()
     }
 
@@ -42,6 +44,10 @@ class TaskCreator extends React.Component {
       }
       this.setState({emp})
       console.log(this.state)
+    }
+
+    handlePriorityChange = (priority) => {
+      this.setState({priority: priority.value})
     }
 
     render(){
@@ -61,6 +67,7 @@ class TaskCreator extends React.Component {
             handleEmployeeChange = {this.handleEmployeeChange}
             employees = {this.props.employees}
             lanes = {this.props.lanes}
+            handlePriorityChange = {this.handlePriorityChange}
           />
         </div>
       );

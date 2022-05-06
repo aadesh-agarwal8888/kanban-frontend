@@ -11,15 +11,16 @@ class TaskCard extends React.Component{
       editable: false,
       title: '',
       desc: '',
+      status: 0,
+      priority: 0,
     }
     this.updateText = this.updateText.bind(this);
     this.toggleEditable = this.toggleEditable.bind(this);
     this.updateTask = this.updateTask.bind(this);
     this.deleteTask = this.deleteTask.bind(this);
-    this.moveTaskAhead = this.moveTaskAhead.bind(this);
-    this.moveTaskBack = this.moveTaskBack.bind(this);
     this.changeTaskStatus = this.changeTaskStatus.bind(this);
     this.handleStatusUpdate = this.handleStatusUpdate.bind(this);
+    this.handlePriorityChange = this.handlePriorityChange.bind(this);
   }
 
   updateText(name, e) {
@@ -31,27 +32,19 @@ class TaskCard extends React.Component{
       editable: !this.state.editable,
       title: this.props.task.title,
       desc: this.props.task.desc,
-      status: 0,
+      status: this.props.task.status,
+      priority: this.props.task.priority
     });
   }
 
   updateTask() {
-    this.props.updateTask(this.props.task.id, this.state.title, this.state.desc, this.state.laneId)
+    console.log(this.state);
+    this.props.updateTask(this.props.task.id, this.state.title, this.state.desc, this.state.status, this.state.priority)
     this.toggleEditable()
   }
 
   deleteTask() {
     this.props.deleteTask(this.props.task.id)
-  }
-
-  moveTaskAhead() {
-    this.props.changeTaskStatus(this.props.task.id, 1)
-    this.toggleEditable()
-  }
-
-  moveTaskBack() {
-    this.props.changeTaskStatus(this.props.task.id, 0)
-    this.toggleEditable()
   }
 
   changeTaskStatus() {
@@ -63,10 +56,14 @@ class TaskCard extends React.Component{
     this.setState({status: nextStatus.value})
   }
 
+  handlePriorityChange = (priority) => {
+    this.setState({priority: priority.value})
+  }
+
   render() {
     return (
         <div>
-        <Card className="card-task">
+        <Card className = {this.props.task.priority == 1 ? 'card-task-1' : this.props.task.priority == 2 ? 'card-task-2' : 'card-task-3'}>
         <Card.Body>
           <Card.Title>
             {this.props.task.title}{" "}
@@ -100,14 +97,16 @@ class TaskCard extends React.Component{
         show = {this.state.editable}
         toggleTaskCreator = {this.toggleEditable}
         updateText = {this.updateText}
-        addTask = {this.changeTaskStatus}
+        addTask = {this.updateTask}
         taskState = "Update"
         employees = {this.props.employees}
         initialTitle = {this.state.title}
         initialDesc = {this.state.desc}
         initialStatus = {this.props.task.status}
+        initialPriority = {this.props.task.priority}
         lanes = {this.props.lanes}
         handleEmployeeChange = {this.handleStatusUpdate}
+        handlePriorityChange = {this.handlePriorityChange}
       />
       </div>
       );
