@@ -28,10 +28,15 @@ class Lane extends React.Component{
               />
           })
         }
-        <TaskCreator 
-          addTask = {this.props.addTask}
-          laneId = {this.props.id}
-        />
+        {
+          this.props.user.role == "manager" ? 
+          <TaskCreator 
+            addTask = {this.props.addTask}
+            laneId = {this.props.id}
+            employees = {this.props.employees}
+          /> : <div />
+        }
+        
       </div>
     )
   }

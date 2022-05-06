@@ -1,5 +1,6 @@
 import React from 'react';
-import './task-creator.styles.scss'
+import './task-creator.styles.scss';
+import Select from 'react-select';
 
 class TaskCreator extends React.Component {
 
@@ -8,7 +9,8 @@ class TaskCreator extends React.Component {
         this.state = {
             active: false,
             title: '',
-            desc: ''
+            desc: '',
+            emp: 0
         }
         this.updateText = this.updateText.bind(this);
         this.toggleTaskCreator = this.toggleTaskCreator.bind(this);
@@ -24,11 +26,22 @@ class TaskCreator extends React.Component {
     }
 
     addTask(e) {
-      this.props.addTask(this.state.title, this.state.desc, this.props.laneId)
+      console.log(this.state)
+      this.props.addTask(this.state.title, this.state.desc, this.props.laneId, this.state.emp)
       this.toggleTaskCreator()
     }
 
+    handleEmployeeChange = (selectedEmp) => {
+      let emp = {
+        id: selectedEmp.value,
+        name: selectedEmp.label
+      }
+      this.setState({emp})
+      console.log(this.state)
+    }
+
     render(){
+
         if(this.state.active) {
           return(
             <div className='card card--placeholder card--placeholder-active'>
@@ -42,6 +55,17 @@ class TaskCreator extends React.Component {
                 placeholder='Description'
                 value={this.state.desc}
                 onChange={this.updateText.bind(null, 'desc')}
+              />
+              <Select
+                className="basic-single"
+                classNamePrefix="select"
+                options = {this.props.employees.map((employee) => {
+                  return {
+                    value: employee.id,
+                    label: employee.name
+                  }
+                })}
+                onChange = {this.handleEmployeeChange}
               />
               <button onClick = {this.addTask}>Save</button>
               <button onClick = {this.toggleTaskCreator}>Cancel</button>

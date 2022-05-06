@@ -28,25 +28,41 @@ class Board extends React.Component{
                 id: 1,
                 title: 'TASK 1',
                 desc: 'TASK 1 DESC',
-                status: 1
+                status: 1,
+                emp: {
+                  id: 1,
+                  name: "ABCD"
+                }
               },
               {
                 id: 2,
                 title: 'TASK 2',
                 desc: 'TASK 2 DESC',
-                status: 1
+                status: 1,
+                emp: {
+                  id: 1,
+                  name: "ABCD"
+                }
               },
               {
                 id: 3,
                 title: 'TASK 3',
                 desc: 'TASK 3 DESC',
-                status: 2
+                status: 2,
+                emp: {
+                  id: 2,
+                  name: "EFG"
+                }
               },
               {
                 id: 4,
                 title: 'TASK 4',
                 desc: 'TASK 4 DESC',
-                status: 3
+                status: 3,
+                emp: {
+                  id: 3,
+                  name: "JIK"
+                }
               },
             ]
         }
@@ -58,15 +74,17 @@ class Board extends React.Component{
         
     }
 
-    addTask(title, desc, status) {
+    addTask(title, desc, status, empId) {
       let tasks = this.state.tasks;
       tasks.push({
         id: tasks.length + 1,
         title: title,
         desc: desc,
-        status: status
+        status: status,
+        emp: empId
       })
       this.setState({tasks})
+      console.log(this.state)
     }
 
     updateTask(id, title, desc, status) {
@@ -111,7 +129,8 @@ class Board extends React.Component{
         return(
             <div className='board'>
               <div className='header'>
-                <h1>{this.state.title}</h1>
+                <h1>Welcome {this.props.user.name}</h1>
+                <h2>{this.state.title}</h2>
               </div>
               <div className='content'>
                 <div className='lane-container'>
@@ -121,6 +140,8 @@ class Board extends React.Component{
                           id = {lane.id}
                           title = {lane.title}
                           tasks = {this.state.tasks.filter(task => task.status === lane.id)}
+                          user = {this.props.user}
+                          employees = {this.props.employees}
                           addTask = {this.addTask}
                           updateTask = {this.updateTask}
                           deleteTask = {this.deleteTask}

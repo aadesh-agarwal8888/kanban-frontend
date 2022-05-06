@@ -59,6 +59,7 @@ class Card extends React.Component{
           </div>
           <div className='card-title'>{this.props.task.title} - {this.props.task.id}</div>
           <div className='card-content'>{this.props.task.desc}</div>
+          <div className='card-content'>Employee - {this.props.task.emp.name}</div>
         </div>
       );
     } else {

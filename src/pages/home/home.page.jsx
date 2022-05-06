@@ -16,7 +16,21 @@ class HomeScreen extends React.Component {
                 name: "XYZ",
                 role: "manager",
             },
-            tasks: []
+            tasks: [],
+            employees: [
+                {
+                    id: 1,
+                    name: "ABCD"
+                },
+                {
+                    id: 2,
+                    name: "EFG"
+                },
+                {
+                    id: 3,
+                    name: "JIK"
+                }
+            ]
             
         }
     }
@@ -24,7 +38,10 @@ class HomeScreen extends React.Component {
     render() {
         return(
             <div>
-                <Board />
+                <Board 
+                    user = {this.state.user}
+                    employees = {this.state.employees}
+                />
             </div>
         )
     }

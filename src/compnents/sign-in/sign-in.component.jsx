@@ -4,14 +4,14 @@ import './sign-in.styles.scss';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 
-
 class Signin extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            loggedIn: false,
         }
     }
 
@@ -19,6 +19,9 @@ class Signin extends React.Component {
         event.preventDefault();
 
         const {email, password} = this.state;
+        this.setState({loggedIn: true})
+
+
     };
 
     handleChange = (event) => {
@@ -27,6 +30,11 @@ class Signin extends React.Component {
     }
 
     render() {
+        if(this.state.loggedIn) {
+            return (
+                <div></div>
+            )
+        } else {
         return(
             <div className = 'sign-in'>
                 <h2>I already have a account</h2>
@@ -43,6 +51,7 @@ class Signin extends React.Component {
                 </form>
             </div>
         );
+        }
     }
 }
 
