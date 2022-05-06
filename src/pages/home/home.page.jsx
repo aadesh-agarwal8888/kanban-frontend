@@ -1,9 +1,10 @@
 import React from 'react';
 import { Navbar, Container } from "react-bootstrap";
 import Board from '../../compnents/board/board.component';
-import Card from '../../compnents/board/card/card.component';
-import Lane from '../../compnents/board/lane/lane.component';
 import './home.styles.scss';
+import { EMPLOYEES, LANES, MANAGERS, TASKS, USERS } from '../../data';
+import { Link } from 'react-router-dom';
+import { Button } from 'bootstrap';
 
 class HomeScreen extends React.Component {
 
@@ -11,39 +12,9 @@ class HomeScreen extends React.Component {
         super(props)
 
         this.state = {
-            user: {
-                id: 1,
-                name: "Chris Brown",
-                role: "manager",
-            },
-            tasks: [],
-            employees: [
-                {
-                    id: 1,
-                    name: "Aadesh"
-                },
-                {
-                    id: 2,
-                    name: "Yash"
-                },
-                {
-                    id: 3,
-                    name: "Ashwin"
-                },
-                {
-                    id: 4,
-                    name: "Ross"
-                },
-                {
-                    id: 4,
-                    name: "Taylor"
-                },
-                {
-                    id: 4,
-                    name: "Fred"
-                },
-            ]
-            
+            user: this.props.user,
+            tasks: TASKS,
+            employees: USERS   
         }
     }
 
@@ -53,11 +24,19 @@ class HomeScreen extends React.Component {
                 <Navbar bg="dark" variant="dark">
                     <Container>
                         <Navbar.Brand >Kanban Board</Navbar.Brand>
+                        <Navbar.Toggle />
+                        <Navbar.Collapse className="justify-content-end">
+                        <Navbar.Text>
+                            <a onClick={this.props.logoutFunc}>Logout</a>
+                        </Navbar.Text>
+                        </Navbar.Collapse>
                     </Container>
                 </Navbar>
                 <Board 
                     user = {this.state.user}
                     employees = {this.state.employees}
+                    tasks = {this.state.tasks}
+                    lanes = {LANES}
                 />
             </div>
         )

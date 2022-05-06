@@ -5,7 +5,27 @@ import Signup from '../../compnents/sign-up/sign-up.component';
 
 import './sign-in-and-sign-up.styles.scss';
 
-const SignInAndSignUp = () => (
+class SignInAndSignUp extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <div>
+                <Header />
+                <div className = "sign-in-and-sign-up">
+                    <Signin loginFunc = {this.props.loginFunc}/>
+                    <Signup />
+                </div>
+            </div>
+        );
+    }
+
+}
+
+/*const SignInAndSignUp = () => (
     <div>
         <Header />
         <div className = "sign-in-and-sign-up">
@@ -13,6 +33,6 @@ const SignInAndSignUp = () => (
             <Signup />
         </div>
     </div>
-);
+);*/
 
 export default SignInAndSignUp;

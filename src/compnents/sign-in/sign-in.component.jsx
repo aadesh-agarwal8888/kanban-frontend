@@ -3,6 +3,8 @@ import React from 'react';
 import './sign-in.styles.scss';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
+import { Link } from 'react-router-dom';
+import { Button } from 'bootstrap';
 
 class Signin extends React.Component {
 
@@ -11,17 +13,13 @@ class Signin extends React.Component {
         this.state = {
             email: '',
             password: '',
-            loggedIn: false,
         }
     }
 
     handleSubmit = async event => {
         event.preventDefault();
-
         const {email, password} = this.state;
-        this.setState({loggedIn: true})
-
-
+        this.props.loginFunc(email, password);
     };
 
     handleChange = (event) => {
@@ -30,11 +28,6 @@ class Signin extends React.Component {
     }
 
     render() {
-        if(this.state.loggedIn) {
-            return (
-                <div></div>
-            )
-        } else {
         return(
             <div className = 'sign-in'>
                 <h2>I already have a account</h2>
@@ -45,13 +38,12 @@ class Signin extends React.Component {
                     <FormInput type="password" name="password" value={this.state.password} required label="Password" onChange = {this.handleChange} />
 
                     <div className="buttons">
-                        <CustomButton onClick = {this.handleSubmit} type="submit"> Submit </CustomButton>
+                        <CustomButton onClick = {this.handleSubmit}> Submit </CustomButton>
                     </div>
                     
                 </form>
             </div>
         );
-        }
     }
 }
 

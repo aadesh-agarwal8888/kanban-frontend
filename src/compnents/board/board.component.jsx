@@ -9,62 +9,8 @@ class Board extends React.Component{
         super(props);
         this.state = {
             title: "Kanban Board",
-            lanes: [
-              {
-                id: 1,
-                title: "Planned"
-              },
-              {
-                id: 2,
-                title: "In Progress"
-              },
-              {
-                id: 3,
-                title: "Completed"
-              },
-            ],
-            tasks: [
-              {
-                id: 1,
-                title: 'TASK 1',
-                desc: 'TASK 1 DESC',
-                status: 1,
-                emp: {
-                  id: 1,
-                  name: "Aadesh"
-                }
-              },
-              {
-                id: 2,
-                title: 'TASK 2',
-                desc: 'TASK 2 DESC',
-                status: 1,
-                emp: {
-                  id: 1,
-                  name: "Aadesh"
-                }
-              },
-              {
-                id: 3,
-                title: 'TASK 3',
-                desc: 'TASK 3 DESC',
-                status: 2,
-                emp: {
-                  id: 2,
-                  name: "Yash"
-                }
-              },
-              {
-                id: 4,
-                title: 'TASK 4',
-                desc: 'TASK 4 DESC',
-                status: 3,
-                emp: {
-                  id: 3,
-                  name: "Ashwin"
-                }
-              },
-            ]
+            lanes: this.props.lanes,
+            tasks: this.props.tasks
         }
         
         this.addTask = this.addTask.bind(this)
