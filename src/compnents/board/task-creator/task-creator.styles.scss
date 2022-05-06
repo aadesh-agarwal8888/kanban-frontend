@@ -1,9 +1,8 @@
 .card {
-    width: 90%;
+    width: 100%;
     margin: 10px auto;
     position: relative;
-    border-radius: 3px;
-    background-color: #e6f0ff;
+    border-radius: 10px;
 }
 
 .card--placeholder {
@@ -12,9 +11,6 @@
     padding: 10px 0px;;
 }
 
-.card--placeholder-active:hover {
-    cursor: auto;
-}
 
 input {
     display: block;

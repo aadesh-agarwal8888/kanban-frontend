@@ -130,7 +130,6 @@ class Board extends React.Component{
             <div className='board'>
               <div className='header'>
                 <h1>Welcome {this.props.user.name}</h1>
-                <h2>{this.state.title}</h2>
               </div>
               <div className='content'>
                 <div className='lane-container'>

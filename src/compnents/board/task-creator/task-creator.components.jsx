@@ -1,6 +1,8 @@
 import React from 'react';
 import './task-creator.styles.scss';
 import Select from 'react-select';
+import TaskForm from '../task-modal/task-creator-modal.component';
+import {Button} from 'react-bootstrap';
 
 class TaskCreator extends React.Component {
 
@@ -19,6 +21,7 @@ class TaskCreator extends React.Component {
 
     updateText(name, e) {
       this.setState({[name]: e.currentTarget.value});
+      console.log(this.state)
     }
 
     toggleTaskCreator() {
@@ -42,39 +45,24 @@ class TaskCreator extends React.Component {
 
     render(){
 
-        if(this.state.active) {
-          return(
-            <div className='card card--placeholder card--placeholder-active'>
-              <input
-                type='text'
-                placeholder='Title'
-                value={this.state.title}
-                onChange={this.updateText.bind(null, 'title')}
-              />
-              <textarea
-                placeholder='Description'
-                value={this.state.desc}
-                onChange={this.updateText.bind(null, 'desc')}
-              />
-              <Select
-                className="basic-single"
-                classNamePrefix="select"
-                options = {this.props.employees.map((employee) => {
-                  return {
-                    value: employee.id,
-                    label: employee.name
-                  }
-                })}
-                onChange = {this.handleEmployeeChange}
-              />
-              <button onClick = {this.addTask}>Save</button>
-              <button onClick = {this.toggleTaskCreator}>Cancel</button>
-            </div>
-          );
-        } else {
-          return <div className='card card--placeholder card--placeholder-inactive' onClick={this.toggleTaskCreator}>+</div>
-        }
-      }
+      return (
+        <div>
+          <div onClick={this.toggleTaskCreator}>
+          <Button variant="primary" onClick={this.toggleTaskCreator}>
+            New Task
+          </Button>
+          </div>
+          <TaskForm 
+            show = {this.state.active}
+            toggleTaskCreator = {this.toggleTaskCreator}
+            updateText = {this.updateText}
+            addTask = {this.addTask}
+            handleEmployeeChange = {this.handleEmployeeChange}
+            employees = {this.props.employees}
+          />
+        </div>
+      );
+    }
 
 }
 

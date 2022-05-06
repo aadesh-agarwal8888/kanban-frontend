@@ -1,58 +1,42 @@
-.card {
-    width: 90%;
-    margin: 10px auto;
-    position: relative;
-    border-radius: 3px;
-    background-color: #e6f0ff;
-}
-
-.card-icon-container {
-    position: absolute;
-    top: 10px;
-    right: 2px;
-}
-
-.icon {
-    background-origin: content-box;
-    background-repeat: no-repeat;
-    float: right;
-    padding: 0px 3px;
-    height: 16px;
-    width: 16px;
-}
-
-.icon--edit {
-    background-image: url("../../../../assets/edit.png");
-}
-
-.icon--delete {
-    background-image: url("../../../../assets/delete.png");
-}
-
-.card, .icon:hover, button {
-    cursor: pointer;
-}
-
-.card-title {
-    background-color: #1a75ff;
-    text-align: left;
-    padding: 10px;
-    border-radius: 3px 3px 0px 0px;
-}
-
-.card-actions {
-    background-color: #ffff;
-    text-align: left;
-    padding: 10px;
-    border-radius: 3px 3px 0px 0px;
-}
-
-.card-content {
-    text-align: left;
-    padding: 10px;
-}
-
-.card-title input, .card-content textarea {
-    border: none;
-    width: 98%;
-}
+.card-task {
+    margin-bottom: 25px;
+    width:350px;
+    color: #fff;
+    background-color: #6c757d !important;
+    border-color: #6c757d !important;
+    cursor: move;
+  }
+  
+  .stage-header {
+    background-color: #ccc !important;
+  }
+  .card-task-option i {
+    color: #fff !important;
+    font-size: 14px;
+  }
+  
+  .card-task-option {
+    display: inline !important;
+    float: right !important;
+    cursor: pointer !important;
+  }
+  
+  .column-wrapper {
+    margin: 0px 20px;
+    padding: 0px 20px;
+    overflow-x: auto;
+  }
+  
+  .inner-column-wrapper {
+    width: 2350px;
+  }
+  
+  .card-column {
+    float: left;
+    margin-left: 20px;
+    width: 290px;
+  }
+  .card-column:first-of-type {
+    margin-left: 0;
+  }
+  

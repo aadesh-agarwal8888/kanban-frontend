@@ -5,3 +5,19 @@
     border-radius: 3px;
     background-color: #c2c2d6;
 }
+
+.column-wrapper {
+    margin: 0px 20px;
+    padding: 0px 20px;
+  }
+
+.lane-column {
+    float: left;
+    margin-left: 20px;
+    width: 390px
+}
+  
+.lane-column:first-of-type {
+    margin-left: 0;
+}
+  

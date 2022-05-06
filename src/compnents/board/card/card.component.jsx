@@ -1,14 +1,16 @@
 import React from 'react';
 import './card.styles.scss';
+import { Card } from "react-bootstrap";
+import TaskForm from '../task-modal/task-creator-modal.component'
 
-class Card extends React.Component{
+class TaskCard extends React.Component{
   //Props: task
   constructor(props) {
     super(props);
     this.state = {
       editable: false,
       title: '',
-      desc: ''
+      desc: '',
     }
     this.updateText = this.updateText.bind(this);
     this.toggleEditable = this.toggleEditable.bind(this);
@@ -50,41 +52,51 @@ class Card extends React.Component{
   }
 
   render() {
-    if(!this.state.editable) {
-      return (
-        <div className='card'>
-          <div className='card-icon-container'>
-            <div className='icon icon--delete' onClick={this.deleteTask}></div>
-            <div className='icon icon--edit' onClick={ this.toggleEditable}></div>
-          </div>
-          <div className='card-title'>{this.props.task.title} - {this.props.task.id}</div>
-          <div className='card-content'>{this.props.task.desc}</div>
-          <div className='card-content'>Employee - {this.props.task.emp.name}</div>
-        </div>
+    return (
+        <div>
+        <Card className="card-task">
+        <Card.Body>
+          <Card.Title>
+            {this.props.task.title}{" "}
+            <div className="card-task-option pull-right">
+              <a onClick={this.toggleEditable}>
+                <i className="fas fa-edit">Edit</i>
+              </a>
+              &nbsp;
+              <a onClick={this.deleteTask}>
+                <i className="fas fa-trash">Delete</i>
+              </a>
+            </div>
+          </Card.Title>
+
+          <table>
+            <tbody>
+              <tr>
+                <td>{this.props.task.desc}</td>
+              </tr>
+              <tr>
+                <td className="font-weight-bold">Employee:</td>
+                <td className="pull-right">
+                  {this.props.task.emp.name}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </Card.Body>
+      </Card>
+      <TaskForm 
+        show = {this.state.editable}
+        toggleTaskCreator = {this.toggleEditable}
+        updateText = {this.updateText}
+        addTask = {this.updateTask}
+        taskState = "Update"
+        employees = {this.props.employees}
+        initialTitle = {this.state.title}
+        initialDesc = {this.state.desc}
+      />
+      </div>
       );
-    } else {
-      return(
-        <div className='card'>
-          <div className='card-title'><input
-            type='text'
-            value={this.state.title}
-            onChange={this.updateText.bind(null, 'title')}
-            />
-          </div>
-          <div className='card-content'><textarea
-            value={this.state.desc}
-            onChange={this.updateText.bind(null, 'desc')}
-            />
-          </div>
-          <button onClick = {this.moveTaskAhead}>Move Ahead</button>
-          <button onClick={this.moveTaskBack}>Move Back</button>
-          <div className = 'card-content' />
-          <button onClick={this.updateTask}>Save</button>
-          <button onClick={this.toggleEditable}>Cancel</button>
-        </div>
-      )
-    }
   }
 }
 
-export default Card;
+export default TaskCard;
