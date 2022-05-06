@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/aadesh-agarwal8888/kanban-frontend/static/css/main.4be40f69.css",
+    "main.js": "/aadesh-agarwal8888/kanban-frontend/static/js/main.b7aea223.js",
+    "static/js/787.5d7b65c0.chunk.js": "/aadesh-agarwal8888/kanban-frontend/static/js/787.5d7b65c0.chunk.js",
+    "index.html": "/aadesh-agarwal8888/kanban-frontend/index.html",
+    "main.4be40f69.css.map": "/aadesh-agarwal8888/kanban-frontend/static/css/main.4be40f69.css.map",
+    "main.b7aea223.js.map": "/aadesh-agarwal8888/kanban-frontend/static/js/main.b7aea223.js.map",
+    "787.5d7b65c0.chunk.js.map": "/aadesh-agarwal8888/kanban-frontend/static/js/787.5d7b65c0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4be40f69.css",
+    "static/js/main.b7aea223.js"
+  ]
+}
