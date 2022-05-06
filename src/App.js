@@ -18,6 +18,7 @@ class App extends React.Component {
     }
     this.loginFunc = this.loginFunc.bind(this)
     this.logoutFunc = this.logoutFunc.bind(this)
+    this.registerUser = this.registerUser.bind(this)
   }
 
   loginFunc(email, password) {
@@ -32,6 +33,17 @@ class App extends React.Component {
     this.setState({loggedIn: false})
   }
 
+  registerUser(name, email, password, role) {
+    let lastUser = USERS[USERS.length-1]
+    USERS.push({
+      id: lastUser.id + 1,
+      name: name,
+      username: email,
+      password: password,
+      role: role
+    })
+  }
+
   render() {
     return (
       <div>
@@ -43,6 +55,7 @@ class App extends React.Component {
               /> : 
             <SignInAndSignUp 
               loginFunc = {this.loginFunc}
+              registerUser = {this.registerUser}
             />
         }
       </div>

@@ -17,7 +17,7 @@ class SignInAndSignUp extends React.Component {
                 <Header />
                 <div className = "sign-in-and-sign-up">
                     <Signin loginFunc = {this.props.loginFunc}/>
-                    <Signup />
+                    <Signup registerUser = {this.props.registerUser}/>
                 </div>
             </div>
         );
