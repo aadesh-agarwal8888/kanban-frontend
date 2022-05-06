@@ -3,6 +3,7 @@ import './task-creator.styles.scss';
 import Select from 'react-select';
 import TaskForm from '../task-modal/task-creator-modal.component';
 import {Button} from 'react-bootstrap';
+import CustomButton from '../../custom-button/custom-button.component';
 
 class TaskCreator extends React.Component {
 
@@ -48,9 +49,9 @@ class TaskCreator extends React.Component {
       return (
         <div>
           <div onClick={this.toggleTaskCreator}>
-          <Button variant="primary" onClick={this.toggleTaskCreator}>
+          <CustomButton variant="primary" onClick={this.toggleTaskCreator}>
             New Task
-          </Button>
+          </CustomButton>
           </div>
           <TaskForm 
             show = {this.state.active}

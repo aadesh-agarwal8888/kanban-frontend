@@ -14,7 +14,7 @@ class HomeScreen extends React.Component {
             user: {
                 id: 3,
                 name: "XYZ",
-                role: "eng",
+                role: "manager",
             },
             tasks: [],
             employees: [
