@@ -12,9 +12,9 @@ class HomeScreen extends React.Component {
 
         this.state = {
             user: {
-                id: "1",
-                name: "XYZ",
-                role: "manager",
+                id: 1,
+                name: "ABCD",
+                role: "eng",
             },
             tasks: [],
             employees: [

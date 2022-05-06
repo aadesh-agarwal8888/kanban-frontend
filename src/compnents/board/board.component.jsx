@@ -135,19 +135,33 @@ class Board extends React.Component{
               <div className='content'>
                 <div className='lane-container'>
                   {
-                    this.state.lanes.map((lane) => {
-                      return <Lane 
-                          id = {lane.id}
-                          title = {lane.title}
-                          tasks = {this.state.tasks.filter(task => task.status === lane.id)}
-                          user = {this.props.user}
-                          employees = {this.props.employees}
-                          addTask = {this.addTask}
-                          updateTask = {this.updateTask}
-                          deleteTask = {this.deleteTask}
-                          changeTaskStatus = {this.changeTaskStatus}
-                        />
-                    })
+                    this.props.user.role == "manager" ? 
+                      this.state.lanes.map((lane) => {
+                        return <Lane 
+                            id = {lane.id}
+                            title = {lane.title}
+                            tasks = {this.state.tasks.filter(task => task.status === lane.id)}
+                            user = {this.props.user}
+                            employees = {this.props.employees}
+                            addTask = {this.addTask}
+                            updateTask = {this.updateTask}
+                            deleteTask = {this.deleteTask}
+                            changeTaskStatus = {this.changeTaskStatus}
+                          />
+                      }) :
+                      this.state.lanes.map((lane) => {
+                        return <Lane 
+                            id = {lane.id}
+                            title = {lane.title}
+                            tasks = {this.state.tasks.filter(task => task.status === lane.id && task.emp.id === this.props.user.id)}
+                            user = {this.props.user}
+                            employees = {this.props.employees}
+                            addTask = {this.addTask}
+                            updateTask = {this.updateTask}
+                            deleteTask = {this.deleteTask}
+                            changeTaskStatus = {this.changeTaskStatus}
+                          />
+                      })
                   }
                 </div>
               </div>
