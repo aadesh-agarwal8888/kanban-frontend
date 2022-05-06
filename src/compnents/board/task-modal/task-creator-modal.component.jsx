@@ -44,7 +44,27 @@ function TaskForm(props) {
                             })}
                             onChange = {props.handleEmployeeChange}
                         />
-                  </FormGroup> : <div></div>
+                  </FormGroup> : 
+                  <FormGroup>
+                    <FormLabel>Task Status</FormLabel>
+                    <Select 
+                      className = "basic-single"
+                      classNamePrefix="select"
+                      options = {props.lanes.map((lane) => {
+                        return {
+                          value: lane.id,
+                          label: lane.title
+                        }
+                      })}
+                      onChange = {props.handleEmployeeChange}
+                      defaultValue = {props.lanes.filter(lane => lane.id == props.initialStatus).map((filteredLane) => {
+                        return {
+                          value: filteredLane.id,
+                          label: filteredLane.title
+                        }
+                      })}
+                    />
+                  </FormGroup>
               }       
             </Modal.Body>
             <Modal.Footer>

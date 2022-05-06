@@ -12,24 +12,36 @@ class HomeScreen extends React.Component {
 
         this.state = {
             user: {
-                id: 3,
-                name: "XYZ",
+                id: 1,
+                name: "Chris Brown",
                 role: "manager",
             },
             tasks: [],
             employees: [
                 {
                     id: 1,
-                    name: "ABCD"
+                    name: "Aadesh"
                 },
                 {
                     id: 2,
-                    name: "EFG"
+                    name: "Yash"
                 },
                 {
                     id: 3,
-                    name: "JIK"
-                }
+                    name: "Ashwin"
+                },
+                {
+                    id: 4,
+                    name: "Ross"
+                },
+                {
+                    id: 4,
+                    name: "Taylor"
+                },
+                {
+                    id: 4,
+                    name: "Fred"
+                },
             ]
             
         }
@@ -40,7 +52,7 @@ class HomeScreen extends React.Component {
             <div>
                 <Navbar bg="dark" variant="dark">
                     <Container>
-                    <Navbar.Brand >Kanban Board</Navbar.Brand>
+                        <Navbar.Brand >Kanban Board</Navbar.Brand>
                     </Container>
                 </Navbar>
                 <Board 

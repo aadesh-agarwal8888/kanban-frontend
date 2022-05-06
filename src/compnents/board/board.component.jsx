@@ -31,7 +31,7 @@ class Board extends React.Component{
                 status: 1,
                 emp: {
                   id: 1,
-                  name: "ABCD"
+                  name: "Aadesh"
                 }
               },
               {
@@ -41,7 +41,7 @@ class Board extends React.Component{
                 status: 1,
                 emp: {
                   id: 1,
-                  name: "ABCD"
+                  name: "Aadesh"
                 }
               },
               {
@@ -51,7 +51,7 @@ class Board extends React.Component{
                 status: 2,
                 emp: {
                   id: 2,
-                  name: "EFG"
+                  name: "Yash"
                 }
               },
               {
@@ -61,7 +61,7 @@ class Board extends React.Component{
                 status: 3,
                 emp: {
                   id: 3,
-                  name: "JIK"
+                  name: "Ashwin"
                 }
               },
             ]
@@ -76,8 +76,9 @@ class Board extends React.Component{
 
     addTask(title, desc, status, empId) {
       let tasks = this.state.tasks;
+      let nextIdx = tasks[tasks.length - 1].id + 1
       tasks.push({
-        id: tasks.length + 1,
+        id: nextIdx,
         title: title,
         desc: desc,
         status: status,
@@ -109,7 +110,9 @@ class Board extends React.Component{
         return task.id === taskId
       })
 
-      if(type === 0) {
+      tasks[idx].status = type
+
+      /*if(type === 0) {
         if(tasks[idx].status != 1) {
           tasks[idx].status--;
         } else {
@@ -121,7 +124,7 @@ class Board extends React.Component{
         } else {
           console.log("Cannot be done")
         }
-      }
+      }*/
       this.setState({tasks})
     }
     
@@ -140,6 +143,7 @@ class Board extends React.Component{
                             id = {lane.id}
                             title = {lane.title}
                             tasks = {this.state.tasks.filter(task => task.status === lane.id)}
+                            lanes = {this.state.lanes}
                             user = {this.props.user}
                             employees = {this.props.employees}
                             addTask = {this.addTask}
@@ -152,6 +156,7 @@ class Board extends React.Component{
                         return <Lane 
                             id = {lane.id}
                             title = {lane.title}
+                            lanes = {this.state.lanes}
                             tasks = {this.state.tasks.filter(task => task.status === lane.id && task.emp.id === this.props.user.id)}
                             user = {this.props.user}
                             employees = {this.props.employees}

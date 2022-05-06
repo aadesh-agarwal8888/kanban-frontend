@@ -18,6 +18,8 @@ class TaskCard extends React.Component{
     this.deleteTask = this.deleteTask.bind(this);
     this.moveTaskAhead = this.moveTaskAhead.bind(this);
     this.moveTaskBack = this.moveTaskBack.bind(this);
+    this.changeTaskStatus = this.changeTaskStatus.bind(this);
+    this.handleStatusUpdate = this.handleStatusUpdate.bind(this);
   }
 
   updateText(name, e) {
@@ -28,7 +30,8 @@ class TaskCard extends React.Component{
     this.setState({
       editable: !this.state.editable,
       title: this.props.task.title,
-      desc: this.props.task.desc
+      desc: this.props.task.desc,
+      status: 0,
     });
   }
 
@@ -49,6 +52,15 @@ class TaskCard extends React.Component{
   moveTaskBack() {
     this.props.changeTaskStatus(this.props.task.id, 0)
     this.toggleEditable()
+  }
+
+  changeTaskStatus() {
+    this.toggleEditable()
+    this.props.changeTaskStatus(this.props.task.id, this.state.status)
+  }
+
+  handleStatusUpdate = (nextStatus) => {
+    this.setState({status: nextStatus.value})
   }
 
   render() {
@@ -88,11 +100,14 @@ class TaskCard extends React.Component{
         show = {this.state.editable}
         toggleTaskCreator = {this.toggleEditable}
         updateText = {this.updateText}
-        addTask = {this.updateTask}
+        addTask = {this.changeTaskStatus}
         taskState = "Update"
         employees = {this.props.employees}
         initialTitle = {this.state.title}
         initialDesc = {this.state.desc}
+        initialStatus = {this.props.task.status}
+        lanes = {this.props.lanes}
+        handleEmployeeChange = {this.handleStatusUpdate}
       />
       </div>
       );

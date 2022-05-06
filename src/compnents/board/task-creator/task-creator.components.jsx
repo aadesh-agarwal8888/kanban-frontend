@@ -60,6 +60,7 @@ class TaskCreator extends React.Component {
             addTask = {this.addTask}
             handleEmployeeChange = {this.handleEmployeeChange}
             employees = {this.props.employees}
+            lanes = {this.props.lanes}
           />
         </div>
       );
