@@ -34,8 +34,8 @@ This command will execute all the test cases written.
 
 ## Example Use Case
 
-Let us consider the use case of task creation from the perspective of project manager. The prerequisite for this is that the project manager should be logged in to the system. The manager will then click on the "New Task" button. After clicking, the manager will get a pop-up window where he will be required to fill in details like "Title", "Description", "Employee", and "Status". The last step is to click on "Save changes".
+Let us consider the use case of task creation from the perspective of project manager. The prerequisite for this is that the project manager should be logged in to the system. The manager will then click on the "New Task" button. After clicking, the manager will get a pop-up window where he/she will be required to fill in details like "Title", "Description", "Employee", and "Status". The last step is to click on "Save changes".
 These are the steps that need to be followed in order to create a task.
-The expected behavior of the system is that a new task will be created with the specified title, description, employee name, and status. This task will be visible on the specified employee dashboard in the "Planned" list.
+The expected behavior of the system is that a new task will be created with the specified title, description, employee name, and status. This task will only be visible to the manager and specified employee.
 
 ## Contradictions - No contradictions seen
