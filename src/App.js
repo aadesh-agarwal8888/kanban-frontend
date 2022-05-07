@@ -6,6 +6,9 @@ import HomeScreen from './pages/home/home.page';
 import React from 'react';
 import { USERS } from './data';
 
+/**
+ * main entry class
+ */
 class App extends React.Component {
 
   constructor(props) {
@@ -21,6 +24,11 @@ class App extends React.Component {
     this.registerUser = this.registerUser.bind(this)
   }
 
+  /**
+   * Login handling function
+   * @param {*} email 
+   * @param {*} password 
+   */
   loginFunc(email, password) {
     let done = false
     USERS.map((user) => {
@@ -30,10 +38,20 @@ class App extends React.Component {
     });
   }
 
+  /**
+   * handles logging out
+   */
   logoutFunc() {
     this.setState({loggedIn: false})
   }
 
+  /**
+   * Handles registration of the user
+   * @param {*} name 
+   * @param {*} email 
+   * @param {*} password 
+   * @param {*} role 
+   */
   registerUser(name, email, password, role) {
     let lastUser = USERS[USERS.length-1]
     USERS.push({

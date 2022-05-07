@@ -2,6 +2,11 @@ import React from 'react';
 
 import './form-input.styles.scss';
 
+/**
+ * Designer Custom Input Field
+ * @param {} param0 
+ * @returns 
+ */
 const FormInput = ({handleChange, label, ...otherProps}) => {
     return <div className = 'group'>
         <input className = 'form-input' onChange={handleChange} {...otherProps} />

@@ -3,6 +3,9 @@ import TaskCard from '../card/card.component';
 import TaskCreator from '../task-creator/task-creator.components';
 import './lane.styles.scss';
 
+/**
+ * This class represents the lane (Planned, In Progress, Completed)
+ */
 class Lane extends React.Component{
   //Props: id, title, tasks, addTask
   constructor(props) {

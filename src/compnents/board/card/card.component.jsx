@@ -3,8 +3,15 @@ import './card.styles.scss';
 import { Card } from "react-bootstrap";
 import TaskForm from '../task-modal/task-creator-modal.component'
 
+/**
+ * This class represents the Card which is used to show the Tasks on the Kanban Board
+ */
 class TaskCard extends React.Component{
-  //Props: task
+  
+  /**
+   * Constructor
+   * @param props 
+   */
   constructor(props) {
     super(props);
     this.state = {
@@ -23,10 +30,18 @@ class TaskCard extends React.Component{
     this.handlePriorityChange = this.handlePriorityChange.bind(this);
   }
 
+  /**
+   * This function updates the text of textfields
+   * @param {string} name 
+   * @param {event} e 
+   */
   updateText(name, e) {
     this.setState({[name]: e.currentTarget.value});
   }
 
+  /**
+   * This function is used to enable the editing mode of the task
+   */
   toggleEditable() {
     this.setState({
       editable: !this.state.editable,
@@ -37,25 +52,42 @@ class TaskCard extends React.Component{
     });
   }
 
+  /**
+   * This function is used to update the Task details
+   */
   updateTask() {
     console.log(this.state);
     this.props.updateTask(this.props.task.id, this.state.title, this.state.desc, this.state.status, this.state.priority)
     this.toggleEditable()
   }
 
+  /**
+   * This function is used to delete a specific task
+   */
   deleteTask() {
     this.props.deleteTask(this.props.task.id)
   }
 
+  /**
+   * This function is used to change the status of the task
+   */
   changeTaskStatus() {
     this.toggleEditable()
     this.props.changeTaskStatus(this.props.task.id, this.state.status)
   }
 
+  /**
+   * This function is used to handle the select option used for selecting the task status
+   * @param {updatedTask} nextStatus 
+   */
   handleStatusUpdate = (nextStatus) => {
     this.setState({status: nextStatus.value})
   }
 
+  /**
+   * This function is used to handle the select option used for selecting the priority for the task.
+   * @param {updated priority} priority 
+   */
   handlePriorityChange = (priority) => {
     this.setState({priority: priority.value})
   }

@@ -4,7 +4,9 @@ import CustomButton from '../custom-button/custom-button.component';
 import Select from 'react-select';
 import './sign-up.styles.scss';
 
-
+/**
+ * The the Signup Component that handles the user registration
+ */
 class Signup extends React.Component {
 
     constructor() {
@@ -18,6 +20,11 @@ class Signup extends React.Component {
         };
     }
 
+    /**
+     * Execute the function of registering the user
+     * @param {*} event 
+     * @returns 
+     */
     handleSubmit = async event => {
         event.preventDefault();
          const {displayName , email, password, confirmPassword} = this.state;
@@ -30,11 +37,19 @@ class Signup extends React.Component {
          this.props.registerUser(this.state.displayName, this.state.email, this.state.password, this.state.role)
     };
 
+    /**
+     * Used to change the text
+     * @param {*} event 
+     */
     handleChange = event => {
         const {name, value} = event.target;
         this.setState({[name]: value});
     };
 
+    /**
+     * Used to handle the select operation for selecting the user type.
+     * @param {} selectedRole 
+     */
     handleSelect = (selectedRole) => {
         this.setState({role: selectedRole.value})
     }

@@ -3,6 +3,11 @@ import { Button, Modal, FormGroup, FormLabel , Form} from "react-bootstrap";
 import Select from 'react-select';
 import { PRIORITIES } from "../../../data";
 
+/**
+ * This function represents the Modal that is used to create a new task or update the task details.
+ * @param {*} props 
+ * @returns 
+ */
 function TaskForm(props) {
     return (
         <Modal show={props.show} onHide={props.toggleTaskCreator}>

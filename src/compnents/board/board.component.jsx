@@ -2,7 +2,9 @@ import React from 'react';
 import Lane from './lane/lane.component';
 import './board.styles.scss';
 
-
+/**
+ * This the Board that consists of the Lanes and Task Cards
+ */
 class Board extends React.Component{
 
     constructor(props) {
@@ -20,6 +22,14 @@ class Board extends React.Component{
         
     }
 
+    /**
+     * This function is used to craete a New task on the board
+     * @param {*} title 
+     * @param {*} desc 
+     * @param {*} status 
+     * @param {*} empId 
+     * @param {*} priority 
+     */
     addTask(title, desc, status, empId, priority) {
       let tasks = this.state.tasks;
       let nextIdx = tasks[tasks.length - 1].id + 1
@@ -35,6 +45,14 @@ class Board extends React.Component{
       console.log(this.state)
     }
 
+    /**
+     * This function is used to update the task details
+     * @param {*} id 
+     * @param {*} title 
+     * @param {*} desc 
+     * @param {*} status 
+     * @param {*} priority 
+     */
     updateTask(id, title, desc, status, priority) {
       let tasks = this.state.tasks;
       var idx = this.state.tasks.findIndex(task => {
@@ -48,11 +66,20 @@ class Board extends React.Component{
       this.setState({tasks})
     }
 
+    /**
+     * This function is used to delete the task
+     * @param {*} id 
+     */
     deleteTask(id) {
       let tasks = this.state.tasks.filter(task => task.id != id)
       this.setState({tasks})
     }
 
+    /**
+     * This function is used change the status of the task
+     * @param {*} taskId 
+     * @param {*} type 
+     */
     changeTaskStatus(taskId, type) {
       let tasks = this.state.tasks;
       var idx = this.state.tasks.findIndex(task => {

@@ -5,6 +5,9 @@ import Signup from '../../compnents/sign-up/sign-up.component';
 
 import './sign-in-and-sign-up.styles.scss';
 
+/**
+ * Sign-in & Sign-up Page
+ */
 class SignInAndSignUp extends React.Component {
 
     constructor(props) {
@@ -24,15 +27,5 @@ class SignInAndSignUp extends React.Component {
     }
 
 }
-
-/*const SignInAndSignUp = () => (
-    <div>
-        <Header />
-        <div className = "sign-in-and-sign-up">
-            <Signin />
-            <Signup />
-        </div>
-    </div>
-);*/
 
 export default SignInAndSignUp;

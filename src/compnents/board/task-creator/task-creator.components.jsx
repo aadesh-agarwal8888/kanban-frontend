@@ -5,6 +5,9 @@ import TaskForm from '../task-modal/task-creator-modal.component';
 import {Button} from 'react-bootstrap';
 import CustomButton from '../../custom-button/custom-button.component';
 
+/**
+ * The Class represents the button used to create a new task
+ */
 class TaskCreator extends React.Component {
 
     constructor(props) {
@@ -22,21 +25,37 @@ class TaskCreator extends React.Component {
         this.handlePriorityChange = this.handlePriorityChange.bind(this);
     }
 
+    /**
+     * Update Text of the input field
+     * @param {*} name 
+     * @param {*} e 
+     */
     updateText(name, e) {
       this.setState({[name]: e.currentTarget.value});
       console.log(this.state)
     }
 
+    /**
+     * Handles the click of button - New Task
+     */
     toggleTaskCreator() {
         this.setState({active: !this.state.active});
     }
 
+    /**
+     * Add new task
+     * @param {*} e 
+     */
     addTask(e) {
       console.log(this.state)
       this.props.addTask(this.state.title, this.state.desc, this.props.laneId, this.state.emp, this.state.priority)
       this.toggleTaskCreator()
     }
 
+    /**
+     * Handles the select option used to select the employee
+     * @param {*} selectedEmp 
+     */
     handleEmployeeChange = (selectedEmp) => {
       let emp = {
         id: selectedEmp.value,
@@ -46,6 +65,10 @@ class TaskCreator extends React.Component {
       console.log(this.state)
     }
 
+    /**
+     * Handles the select option used to select the priority
+     * @param {*} priority 
+     */
     handlePriorityChange = (priority) => {
       this.setState({priority: priority.value})
     }

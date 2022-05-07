@@ -3,9 +3,10 @@ import React from 'react';
 import './sign-in.styles.scss';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
-import { Link } from 'react-router-dom';
-import { Button } from 'bootstrap';
 
+/**
+ * The Signin component which handles the signin of user
+ */
 class Signin extends React.Component {
 
     constructor(props) {
@@ -16,12 +17,20 @@ class Signin extends React.Component {
         }
     }
 
+    /**
+     * Handles the event created on click of Login Button
+     * @param {*} event 
+     */
     handleSubmit = async event => {
         event.preventDefault();
         const {email, password} = this.state;
         this.props.loginFunc(email, password);
     };
 
+    /**
+     * Handles the changes doen in the input
+     * @param {*} event 
+     */
     handleChange = (event) => {
         const {name, value} = event.target;
         this.setState({ [name]: value })

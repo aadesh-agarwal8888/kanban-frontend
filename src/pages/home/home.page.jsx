@@ -6,6 +6,9 @@ import { EMPLOYEES, LANES, MANAGERS, TASKS, USERS } from '../../data';
 import { Link } from 'react-router-dom';
 import { Button } from 'bootstrap';
 
+/**
+ * Home page
+ */
 class HomeScreen extends React.Component {
 
     constructor(props) {
