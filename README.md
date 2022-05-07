@@ -24,13 +24,15 @@ Open [http://localhost:3000](http://localhost:3000/) to view it in your browser.
 The page will reload when you make changes.
 You may also see any lint errors in the console.
 
+**Note - Live Demo can be seen at https://aadesh-agarwal8888.github.io/kanban-frontend/**
+
 ## How to Run the Tests
 
 ### 1. `npm test`
 
 This command will execute all the test cases written.
 
-## Potential User Case
+## Example Use Case
 
 Let us consider the use case of task creation from the perspective of project manager. The prerequisite for this is that the project manager should be logged in to the system. The manager will then click on the "New Task" button. After clicking, the manager will get a pop-up window where he will be required to fill in details like "Title", "Description", "Employee", and "Status". The last step is to click on "Save changes".
 These are the steps that need to be followed in order to create a task.
