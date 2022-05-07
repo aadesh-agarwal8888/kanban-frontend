@@ -39,3 +39,14 @@ These are the steps that need to be followed in order to create a task.
 The expected behavior of the system is that a new task will be created with the specified title, description, employee name, and status. This task will only be visible to the manager and the specified employee.
 
 ## Contradictions - No contradictions seen
+
+## SE Process used for this project
+
+### Github Issues:
+
+The issues were raised on github repository and was solved by the respective engineer.
+
+### Task Management Tool
+
+We used Asana for managing all the tasks related to the project.
+Tasks like: Creating a login page, registration page, home screen, kanban board, task cards were assigned to the team members and the track of all the progress was also maintained.
