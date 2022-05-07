@@ -2,7 +2,6 @@ import React from 'react';
 import TaskCard from '../card/card.component';
 import TaskCreator from '../task-creator/task-creator.components';
 import './lane.styles.scss';
-import { DropTarget } from 'react-dnd';
 
 class Lane extends React.Component{
   //Props: id, title, tasks, addTask
